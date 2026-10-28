@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Zoo Fan Club – Lesson 7 Part 1 – English in Action</title>
+<style>
+:root{--sea:#0e5a6b;--deep:#093a48;--sun:#ffc83d;--coral:#ff6b57;--leaf:#3fa66a;--foam:#eafaf6;--ink:#12313a}
+*{box-sizing:border-box}
+html,body{margin:0;overscroll-behavior:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+body{font-family:"Nunito","Segoe UI",system-ui,sans-serif;color:var(--ink);background:linear-gradient(#d9f5ee,#fff7dd);min-height:100vh;font-size:17px}
+h1,h2,.hd{font-family:"Baloo 2","Fredoka One","Trebuchet MS",system-ui,sans-serif;margin:.2em 0}
+header{position:sticky;top:0;z-index:20;background:var(--deep);color:#fff;padding:calc(8px + env(safe-area-inset-top,0px)) 14px 8px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+header h1{font-size:1.25rem;color:var(--sun)}
+.pill{background:#ffffff22;border-radius:999px;padding:4px 12px;font-weight:800}
+.bar{flex:1 1 140px;height:12px;background:#ffffff33;border-radius:9px;overflow:hidden;min-width:100px}
+.bar i{display:block;height:100%;width:0;background:var(--sun);transition:width .5s}
+button{font:inherit;cursor:pointer}
+.btn{background:var(--coral);color:#fff;border:0;border-radius:999px;padding:8px 18px;font-weight:800}
+.btn.alt{background:var(--sun);color:var(--ink)}
+.wrap{max-width:980px;margin:auto;padding:14px}
+.intro{background:var(--sea);color:#fff;border-radius:20px;padding:16px 20px}
+.intro p{margin:.3em 0}
+.tickets{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0}
+.ticket{background:#fff;border-radius:18px;border-left:12px solid var(--c);padding:12px 16px;cursor:pointer;box-shadow:0 3px 0 #0002;border-right:3px dashed #0002}
+.ticket:active{transform:translateY(2px)}
+.ticket p{margin:.2em 0;font-size:.92rem}
+.tag{font-weight:800;font-size:.85rem;color:var(--c)}
+.card{background:#fff;border-radius:16px;padding:12px 16px;margin:10px 0;box-shadow:0 2px 0 #0001}
+.pics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pic{background:#fff;border-radius:14px;padding:8px;text-align:center}
+.big{font-size:44px;line-height:1.1}
+.slot{min-height:46px;border:3px dashed #5aa;border-radius:12px;padding:4px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:center}
+.bank{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;background:#fff8;border-radius:16px;padding:12px;margin-top:12px;min-height:60px}
+.chip{display:inline-block;position:relative;z-index:1;padding:8px 14px;background:var(--sun);border-radius:999px;font-weight:800;touch-action:none;cursor:grab;box-shadow:0 3px 0 #0003}
+.chip.drag{z-index:50;box-shadow:0 10px 18px #0004;scale:1.08}
+.chip.sel{outline:4px solid var(--coral)}
+.chip.done{background:var(--leaf);color:#fff;touch-action:auto;cursor:default;box-shadow:none}
+.bins{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bin{background:#fff;border-radius:14px;padding:8px;text-align:center}
+.bin .slot{min-height:150px;flex-direction:column}
+.opt{display:block;width:100%;text-align:left;background:#f2fbf8;border:2px solid #9cd;border-radius:12px;padding:8px 12px;margin:6px 0;font-weight:700}
+.opt.ok{background:#c9f2d8;border-color:var(--leaf)}
+.opt.bad{background:#ffd6d0;border-color:var(--coral);animation:sh .3s}
+.syls{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.syls .opt{width:auto;margin:0;font-size:1.1rem}
+select,input{font:inherit;font-weight:700;border:2px solid #7bb;border-radius:10px;padding:3px 6px;max-width:100%}
+select.ok{background:#c9f2d8;border-color:var(--leaf)}
+.line{margin:8px 0;line-height:2.2}
+.shake{animation:sh .3s}
+@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.cf{position:fixed;top:-30px;font-size:28px;z-index:99;animation:fall 2.4s linear forwards;pointer-events:none}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+.msg{background:var(--leaf);color:#fff;border-radius:14px;padding:10px 16px;margin:10px 0;font-weight:800}
+.res{position:fixed;inset:0;background:#093a48ee;z-index:60;display:flex;align-items:center;justify-content:center;padding:16px}
+.cert{background:#fffbe8;border:8px double var(--sun);border-radius:20px;padding:20px;text-align:center;max-width:520px;width:100%}
+details{background:#fff;border-radius:16px;padding:10px 16px;margin:12px 0}
+summary{font-weight:800;cursor:pointer}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+td,th{border:1px solid #bcd;padding:5px 8px;text-align:left;vertical-align:top}
+footer{text-align:center;padding:18px;font-weight:800;color:var(--sea)}
+@media(max-width:640px){.pics{grid-template-columns:repeat(2,1fr)}.bins{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head>
+<body>
+<header>
+ <h1>🐾 Zoo Fan Club</h1>
+ <span class="pill">⭐ <b id="sc">0</b></span>
+ <div class="bar" title="Progress"><i id="pg"></i></div>
+ <button class="pill" id="tmb" style="border:0;color:#fff" onclick="tmr()">⏱ 25:00 ▶</button>
+ <button class="btn alt" onclick="results()">🏁 Results</button>
+</header>
+<div class="wrap">
+<div id="menu">
+ <div class="intro">
+  <h2>Lesson 7, Part 1 – English in Action</h2>
+  <p>Grade 7 – Unit 2: Animals – Saying what you like and don't like</p>
+  <p>Welcome, Junior Zoo Reporter! Visit the animals, collect tickets and become a Zoo Fan Club member. <b>Choose any ticket to start – you can play the stages in any order!</b></p>
+ </div>
+ <div class="tickets" id="tk"></div>
+ <details><summary>👩‍🏫 Teacher's lesson plan (25 minutes)</summary>
+  <p><b>Lesson aims:</b> to learn how to say what you like and don't like; to practise stressed syllables in words.<br>
+  <b>Target language:</b> I'm crazy about…; I find … really interesting; I quite like…; I don't mind…; I'm not keen on…; I don't like … at all; I can't stand…<br>
+  <b>Vocabulary:</b> dolphin, giraffe, jellyfish, gorilla, kangaroo, alligator, koala, elephant.<br>
+  <b>Teacher's Book:</b> Lesson 7, parts 1 and 2, pages 115–116 (Class Book: English in action, pages 52–53).<br>
+  <b>GSE:</b> Reading 34/38 – Listening 38 – Speaking 29.</p>
+  <table><tr><th>Time</th><th>Phase</th><th>Stage</th><th>Link to the Teacher's Book</th></tr>
+  <tr><td>3 min</td><td>Warm-up</td><td>Animal Match</td><td>Starting the lesson: review the Unit 2 animal vocabulary; stressed syllables (ex. 4)</td></tr>
+  <tr><td>5 min</td><td>Formative 1</td><td>Feelings Sorter</td><td>Presentation: happy / sad faces; Say it! box</td></tr>
+  <tr><td>6 min</td><td>Formative 2</td><td>Dialogue Detective</td><td>Exercises 1 and 2: read the dialogue; find sentences from the Say it! box</td></tr>
+  <tr><td>4 min</td><td>Formative 3</td><td>Stress Hunt</td><td>Pronunciation exercise 4: stressed syllables</td></tr>
+  <tr><td>4 min</td><td>Differentiation</td><td>Level Up</td><td>Support: faces + expressions. Challenge: write your own sentences (portfolio)</td></tr>
+  <tr><td>3 min</td><td>Closing</td><td>Exit Ticket</td><td>Finishing the lesson: check the learning aims</td></tr></table>
+  <p><b>Tips:</b> students choose their first stage freely. Use pair work: one student plays, the other reads the expressions aloud. Finish with the Lollipop stick technique: students say true sentences about animals.</p>
+ </details>
+</div>
+<div id="stage" hidden>
+ <button class="btn alt" onclick="menu()">⬅ Back to tickets</button>
+ <h2 id="sh"></h2><p id="si" class="card"></p>
+ <div id="sb"></div><div id="sm"></div>
+</div>
+</div>
+<footer>Created by T.Badria Alfalahi</footer>
+<div id="rs"></div>
+<script>
+const $=s=>document.querySelector(s),shuf=a=>[...a].sort(()=>Math.random()-.5);
+const JF='<svg viewBox="0 0 48 48" width="50" height="50"><path d="M8 26a16 16 0 0 1 32 0z" fill="#c77dff"/><path d="M13 28q-3 6 0 10t0 6M20 28q-3 6 0 10t0 6M28 28q3 6 0 10t0 6M35 28q3 6 0 10t0 6" stroke="#c77dff" stroke-width="3" fill="none" stroke-linecap="round"/></svg>';
+const ANI=[["dolphin","🐬"],["giraffe","🦒"],["jellyfish",JF],["gorilla","🦍"],["kangaroo","🦘"],["alligator","🐊"],["koala","🐨"],["elephant","🐘"]];
+const S={score:0,cur:null,st:{}};
+const ST=[
+{id:'warm',ic:'🔎',n:'Animal Match',tag:'Warm-up – 3 min',c:'#ff9f1c',t:8,f:warm,d:'Drag each animal name onto its picture. Tap 🔊 to hear it.'},
+{id:'sort',ic:'😍',n:'Feelings Sorter',tag:'Formative 1 – 5 min',c:'#2ec4b6',t:7,f:sort,d:'Drag each expression into the correct box: like, OK or dislike.'},
+{id:'dia',ic:'💬',n:'Dialogue Detective',tag:'Formative 2 – 6 min',c:'#3a86ff',t:10,f:dia,d:'Complete the dialogue, then answer the questions.'},
+{id:'str',ic:'🔊',n:'Stress Hunt',tag:'Formative 3 – 4 min',c:'#8338ec',t:8,f:str,d:'Listen and tap the stressed syllable in each animal word.'},
+{id:'dif',ic:'🚀',n:'Level Up',tag:'Differentiation – 4 min',c:'#ef476f',t:5,f:dif,d:'Choose your level: Support or Challenge.'},
+{id:'end',ic:'🎟️',n:'Exit Ticket',tag:'Closing – 3 min',c:'#06a77d',t:4,f:end,d:'Show what you have learnt today.'}];
+ST.forEach(s=>S.st[s.id]={done:0,t:s.t});
+let AC;function beep(f,d){try{AC=AC||new(window.AudioContext||webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.frequency.value=f;g.gain.value=.08;o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+d)}catch(e){}}
+function say(w){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-GB';u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
+function conf(){for(let i=0;i<30;i++){const s=document.createElement('span');s.className='cf';s.textContent=['🎉','⭐','🐾','🍃'][i%4];s.style.left=Math.random()*100+'vw';s.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),3200)}}
+function upd(){$('#sc').textContent=S.score;const n=ST.filter(s=>S.st[s.id].done>=S.st[s.id].t).length;$('#pg').style.width=n/ST.length*100+'%'}
+function menu(){$('#stage').hidden=true;$('#menu').hidden=false;$('#tk').innerHTML=ST.map(s=>{const k=S.st[s.id];return`<div class="ticket" style="--c:${s.c}" onclick="go('${s.id}')"><span class="tag">${s.tag}</span><h2>${s.ic} ${s.n}</h2><p>${s.d}</p><b>${k.done>=k.t?'✅ Completed':k.done+' / '+k.t}</b></div>`}).join('');upd();scrollTo(0,0)}
+function go(id){const s=ST.find(x=>x.id==id),k=S.st[id];S.score-=k.done*10;k.done=0;S.cur=id;$('#menu').hidden=true;$('#stage').hidden=false;$('#sh').textContent=s.ic+' '+s.n;$('#si').textContent=s.d;$('#sm').innerHTML='';const b=$('#sb');b.innerHTML='';s.f(b);upd();scrollTo(0,0)}
+function got(id){const k=S.st[id];k.done++;S.score+=10;beep(660,.12);upd();if(k.done>=k.t){conf();beep(880,.3);$('#sm').innerHTML='<div class="msg">🎉 Stage complete! Well done! Choose another ticket.</div><button class="btn" onclick="menu()">⬅ Back to tickets</button>'}}
+function bad(el){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');beep(200,.2)}
+/* drag & drop (pointer events + tap-to-place for iPad) */
+let sel=null;
+document.addEventListener('touchmove',e=>{if(document.querySelector('.chip.drag'))e.preventDefault()},{passive:false});
+function dnd(root,id){
+ const place=(c,slot)=>{if(sel){sel.classList.remove('sel');sel=null}
+  if(!slot)return;
+  if(slot.classList.contains('one')&&slot.querySelector('.chip'))return bad(c);
+  if(c.dataset.k===slot.dataset.t){slot.appendChild(c);c.classList.add('done');if(c.dataset.say)say(c.dataset.say);got(id)}else bad(c)};
+ root.querySelectorAll('.chip').forEach(c=>c.addEventListener('pointerdown',e=>{
+  if(c.classList.contains('done'))return;e.preventDefault();
+  c.setPointerCapture(e.pointerId);const sx=e.clientX,sy=e.clientY;let dr=false;
+  const mv=ev=>{const dx=ev.clientX-sx,dy=ev.clientY-sy;if(!dr&&Math.hypot(dx,dy)>8){dr=true;c.classList.add('drag')}if(dr)c.style.transform=`translate(${dx}px,${dy}px)`};
+  const up=ev=>{c.removeEventListener('pointermove',mv);c.removeEventListener('pointerup',up);c.removeEventListener('pointercancel',up);
+   c.style.transform='';c.classList.remove('drag');
+   if(dr){c.style.pointerEvents='none';const el=document.elementFromPoint(ev.clientX,ev.clientY);c.style.pointerEvents='';place(c,el&&el.closest('.slot'))}
+   else{if(sel)sel.classList.remove('sel');sel=sel===c?null:c;if(sel)c.classList.add('sel')}};
+  c.addEventListener('pointermove',mv);c.addEventListener('pointerup',up);c.addEventListener('pointercancel',up)}));
+ root.querySelectorAll('.slot').forEach(s=>s.addEventListener('click',()=>{if(sel)place(sel,s)}))}
+/* multiple choice engine */
+function mc(box,id,qs){qs.forEach(q=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<p class="hd">${q.q}</p>`+q.o.map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join('');
+ d.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(d.dataset.ok||b.disabled)return;if(+b.dataset.j===q.a){b.classList.add('ok');d.dataset.ok=1;got(id)}else{b.classList.add('bad');b.disabled=true;bad(b)}});box.appendChild(d)})}
+/* stages */
+function warm(b){b.innerHTML=`<div class="pics">${ANI.map(a=>`<div class="pic"><div class="big">${a[1]}</div><div class="slot one" data-t="${a[0]}"></div></div>`).join('')}</div><div class="bank">${shuf(ANI).map(a=>`<span class="chip" data-k="${a[0]}" data-say="${a[0]}">${a[0]}</span>`).join('')}</div><p>💡 Tip: you can also tap a word, then tap a picture.</p>`;dnd(b,'warm')}
+function sort(b){const I=[["I'm crazy about…","up"],["I find … really interesting","up"],["I quite like…","up"],["I don't mind…","mid"],["I'm not keen on…","down"],["I don't like … at all","down"],["I can't stand…","down"]];
+ const B=[["up","😍","I like it"],["mid","😐","It's OK"],["down","😖","I don't like it"]];
+ b.innerHTML=`<div class="bins">${B.map(x=>`<div class="bin"><div class="big">${x[1]}</div><b>${x[2]}</b><div class="slot" data-t="${x[0]}"></div></div>`).join('')}</div><div class="bank">${shuf(I).map(x=>`<span class="chip" data-k="${x[1]}">${x[0]}</span>`).join('')}</div>`;dnd(b,'sort')}
+const GA=["can't stand","don't mind","not keen on","really interesting","crazy about","at all"];
+function dia(b){const L=[["👧","Do you like spiders? 🕷️"],["🧕","No, I don't. I [0] them! What about you?"],["👧","I [1] them. I don't like picking them up, but I like watching them."],["🧕","Do you like ants? 🐜"],["👧","I'm [2] them. And you?"],["🧕","I find them [3]. They're so good at carrying things and making tunnels! What animals do you like?"],["👧","I'm [4] sea animals. 🐠"],["🧕","Me too. What kinds of sea animals do you like?"],["👧","All kinds! But my favourite animals are sharks. 🦈"],["🧕","Oh, I don't like sharks [5]. I'm scared of them!"],["👧","You shouldn't be scared of sharks. Most of them don't hurt humans!"]];
+ const S_=n=>`<select data-n="${n}"><option value="">choose…</option>${shuf(GA).map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`;
+ b.innerHTML='<div class="card">'+L.map(l=>`<div class="line">${l[0]} ${l[1].replace(/\[(\d)\]/g,(m,n)=>S_(n))}</div>`).join('')+'</div>';
+ b.querySelectorAll('select').forEach(s=>s.onchange=()=>{if(s.value===GA[s.dataset.n]){s.classList.add('ok');s.disabled=true;got('dia')}else{bad(s);s.value=''}});
+ mc(b,'dia',[{q:"1. Which animals do the girls talk about?",o:["Spiders, ants, sharks and sea animals","Cats, dogs and birds","Lions and tigers"],a:0},{q:"2. Which animal is one of the girls scared of?",o:["Ants","Sharks","Spiders"],a:1},{q:"3. What does the first girl say about spiders?",o:["I can't stand them!","I'm crazy about them!","I don't mind them."],a:2},{q:"4. Which animal does the second girl find really interesting?",o:["Ants","Sharks","Spiders"],a:0}])}
+const W=[["dolphin",["dol","phin"],0,"🐬"],["giraffe",["gi","raffe"],1,"🦒"],["jellyfish",["jel","ly","fish"],0,JF],["gorilla",["go","ril","la"],1,"🦍"],["kangaroo",["kang","a","roo"],2,"🦘"],["alligator",["al","li","ga","tor"],0,"🐊"],["koala",["ko","a","la"],1,"🐨"],["elephant",["el","e","phant"],0,"🐘"]];
+function str(b){W.forEach(w=>{const d=document.createElement('div');d.className='card syls';d.innerHTML=`<span class="big" style="font-size:34px">${w[3]}</span><button class="btn alt" onclick="say('${w[0]}')">🔊 ${w[0]}</button>`+w[1].map((s,i)=>`<button class="opt" data-i="${i}">${s}</button>`).join('');
+ d.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{if(d.dataset.ok||o.disabled)return;if(+o.dataset.i===w[2]){o.classList.add('ok');o.style.fontSize='1.5rem';d.dataset.ok=1;got('str')}else{o.classList.add('bad');o.disabled=true;bad(o)}});b.appendChild(d)})}
+function dif(b){b.innerHTML='<div class="card"><p class="hd">Which level do you choose?</p><button class="btn" id="b1">🌱 Support</button> <button class="btn alt" id="b2">🚀 Challenge</button></div><div id="lv"></div>';
+ const run=(n,f)=>{const k=S.st.dif;S.score-=k.done*10;k.done=0;k.t=n;upd();$('#sm').innerHTML='';const l=$('#lv');l.innerHTML='';f(l)};
+ $('#b1').onclick=()=>run(5,l=>mc(l,'dif',[{q:"😍 🐬 ___ dolphins.",o:["I can't stand","I'm crazy about","I don't mind"],a:1},{q:"😖 🕷️ ___ spiders.",o:["I can't stand","I quite like","I'm crazy about"],a:0},{q:"😐 🐜 ___ ants.",o:["I'm crazy about","I can't stand","I don't mind"],a:2},{q:"🙁 🦈 ___ sharks.",o:["I quite like","I'm not keen on","I'm crazy about"],a:1},{q:"🙂 🐨 ___ koalas.",o:["I quite like","I can't stand","I'm not keen on"],a:0}]));
+ $('#b2').onclick=()=>run(3,l=>{[["😍","🐘","elephants","pos","I'm crazy about… / I quite like… / I find them really interesting."],["😖","🐊","alligators","neg","I'm not keen on… / I can't stand… / I don't like them at all."],["😐","🦘","kangaroos","mid","I don't mind…"]].forEach(q=>{
+  const d=document.createElement('div');d.className='card';d.innerHTML=`<div class="big">${q[0]} ${q[1]}</div><p>Write a sentence about <b>${q[2]}</b>. Use the face to help you.<br><small>Use: ${q[4]}</small></p><input size="34" placeholder="Write here…"> <button class="btn">Check</button><p class="fb"></p>`;
+  d.querySelector('button').onclick=()=>{if(d.dataset.ok)return;const v=d.querySelector('input').value,fb=d.querySelector('.fb');
+   const an=new RegExp(q[2].slice(0,-1),'i').test(v),R={pos:/crazy about|really interesting|quite like|\blike/i,neg:/not keen|n't like|can't stand|scared|hate/i,mid:/don't mind/i}[q[3]];
+   const ex=q[3]=='pos'?!/n't|not/i.test(v):true;
+   if(an&&R.test(v)&&ex){d.dataset.ok=1;fb.textContent='✅ Great sentence! Now tell your partner.';got('dif')}else{bad(d);fb.textContent=an?'🤔 Check the expression – does it match the face?':'🤔 Remember to write the animal name: '+q[2]}};
+  l.appendChild(d)})})}
+function end(b){mc(b,'end',[{q:"1. Which sentence shows you REALLY don't like something?",o:["I don't mind spiders.","I can't stand spiders.","I quite like spiders."],a:1},{q:"2. “I'm crazy about koalas” means…",o:["I'm scared of koalas.","I don't mind koalas.","I love koalas."],a:2},{q:"3. Where is the stress in “kangaroo”?",o:["KANG-a-roo","kang-A-roo","kang-a-ROO"],a:2},{q:"4. I find sharks really ___ .",o:["stand","interesting","at all"],a:1}]);
+ const d=document.createElement('div');d.className='card';d.innerHTML='<p class="hd">How well can you say what you like and don\'t like?</p><button class="btn alt">😃 Very well</button> <button class="btn alt">🙂 OK</button> <button class="btn alt">🤔 I need more practice</button><p class="fb"></p>';
+ d.querySelectorAll('button').forEach(x=>x.onclick=()=>d.querySelector('.fb').textContent='Thank you! Tell your teacher how you feel. 🐾');b.appendChild(d)}
+/* timer */
+let T=1500,tm=null;function tmr(){const e=$('#tmb');if(tm){clearInterval(tm);tm=null;e.textContent='⏱ '+fmt()+' ▶';return}
+ tm=setInterval(()=>{T=Math.max(0,T-1);e.textContent='⏱ '+fmt()+' ⏸';e.style.background=T<300?'#ff6b57':'';if(!T){clearInterval(tm);tm=null;beep(500,.5)}},1000);e.textContent='⏱ '+fmt()+' ⏸'}
+function fmt(){return String(Math.floor(T/60)).padStart(2,'0')+':'+String(T%60).padStart(2,'0')}
+/* results */
+function results(){const mx=ST.reduce((a,s)=>a+S.st[s.id].t*10,0),p=S.score/mx,r=p>=.85?['🏆','Zoo Star']:p>=.5?['🥈','Animal Explorer']:['🌱','Junior Keeper'];
+ $('#rs').innerHTML=`<div class="res"><div class="cert"><div class="big">${r[0]}</div><h2>Zoo Fan Club Certificate</h2><p>Name: <input id="nm" placeholder="Your name"></p><p class="hd" style="font-size:1.4rem">${r[1]}</p><p>Score: <b>${S.score}</b> / ${mx}</p><p>${ST.map(s=>S.st[s.id].done>=S.st[s.id].t?'✅':'⬜').join(' ')}</p><p>I can say what I like and don't like! 🐾</p><button class="btn" onclick="$('#rs').innerHTML=''">Keep playing</button><p><small>Created by T.Badria Alfalahi</small></p></div></div>`;if(p>=.5)conf()}
+menu();
+</script></body></html>
